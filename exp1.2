@@ -1,0 +1,52 @@
+# Experiment 2
+# Aim: Plot Line Chart, Scatter Plot and Bar Chart
+
+import matplotlib.pyplot as plt
+import pandas as pd
+
+# Create Dataset
+data = {
+    "Week": [1, 2, 3, 4, 5, 6],
+    "Hours_Studied": [5, 7, 6, 8, 9, 10],
+    "Marks": [55, 62, 60, 72, 80, 90],
+    "Subject": ["Math", "Science", "English", "Computer", "Physics", "Chemistry"]
+}
+
+df = pd.DataFrame(data)
+
+# ---------------- LINE CHART ----------------
+plt.figure(figsize=(7,4))
+plt.plot(df["Week"], df["Marks"],
+         marker="o",
+         linestyle="--",
+         color="green")
+
+plt.title("Student Marks Over Weeks")
+plt.xlabel("Week")
+plt.ylabel("Marks")
+plt.grid(True)
+plt.show()
+
+# ---------------- SCATTER PLOT ----------------
+plt.figure(figsize=(7,4))
+plt.scatter(df["Hours_Studied"],
+            df["Marks"],
+            color="purple",
+            s=120)
+
+plt.title("Hours Studied vs Marks")
+plt.xlabel("Hours Studied")
+plt.ylabel("Marks")
+plt.show()
+
+# ---------------- BAR CHART ----------------
+plt.figure(figsize=(8,4))
+plt.bar(df["Subject"],
+        df["Marks"],
+        color=["red","blue","green","orange","purple","brown"])
+
+plt.title("Marks in Different Subjects")
+plt.xlabel("Subjects")
+plt.ylabel("Marks")
+plt.xticks(rotation=15)
+plt.show()

@@ -12,7 +12,6 @@ data = {
 
 df = pd.DataFrame(data)
 df.insert(0, 'S.No', range(1, len(df) + 1))
-df.index = range(1, len(df) + 1)
 
 print("Employee Dataset:")
 print(df)
@@ -30,3 +29,7 @@ print(f"Median Salary: {median_salary:.2f}")
 print(f"Mode Salary: {mode_salary}")
 print(f"Variance: {variance_salary:.2f}")
 print(f"Standard Deviation: {std_salary:.2f}")
+
+output_file = "employee_data.xlsx"
+df.to_excel(output_file, index=False)
+print(f"Excel file created: {output_file}")
